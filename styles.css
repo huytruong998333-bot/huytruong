@@ -23,10 +23,19 @@ body {
               linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 45%, #0f172a 100%);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.03rem;
+  line-height: 1.85;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--accent-dark);
+}
+
+p, a, span, button, li {
+  font-family: var(--font-body);
 }
 
 * {
@@ -107,17 +116,17 @@ button {
   display: grid;
   gap: 4px;
   font-family: var(--font-heading);
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  font-size: 1.08rem;
   color: var(--accent-dark);
 }
 
 .brand small {
   color: var(--muted);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.68rem;
+  font-size: 0.92rem;
 }
 
 .navlinks {
@@ -130,9 +139,9 @@ button {
 .navlinks a {
   position: relative;
   color: var(--text);
-  font-size: 1.03rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: clamp(1.05rem, 1.3vw, 1.12rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
   transition: color 0.25s ease;
 }
 
@@ -212,10 +221,10 @@ button {
 
 .hero {
   position: relative;
-  min-height: calc(100vh - 92px);
+  min-height: calc(100vh - 96px);
   display: grid;
   place-items: center;
-  padding: 140px 24px 80px;
+  padding: 150px 24px 90px;
 }
 
 .hero-decor {
@@ -233,8 +242,8 @@ button {
   display: grid;
   place-items: center;
   text-align: center;
-  gap: 38px;
-  max-width: 920px;
+  gap: 46px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -294,44 +303,44 @@ button {
 .eyebrow {
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  font-size: clamp(0.92rem, 1.4vw, 1rem);
-  font-weight: 600;
+  letter-spacing: 0.24em;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-weight: 700;
   color: rgba(15, 23, 42, 0.72);
 }
 
 .hero h1 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(4.5rem, 7vw, 7.5rem);
+  font-size: clamp(5.6rem, 8vw, 8rem);
   line-height: 0.88;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 900;
 }
 
 .subtitle {
   margin: 0;
-  font-size: clamp(1.12rem, 1.4vw, 1.35rem);
-  line-height: 1.95;
-  font-weight: 600;
+  font-size: clamp(1.35rem, 1.8vw, 1.55rem);
+  line-height: 2.05;
+  font-weight: 700;
   color: rgba(15, 23, 42, 0.82);
 }
 
 .headline {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 2.2vw, 2.4rem);
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   color: var(--accent-dark);
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .hero-actions {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 22px;
   justify-content: center;
 }
 
@@ -339,14 +348,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 170px;
-  padding: 18px 32px;
+  min-width: 180px;
+  padding: 22px 38px;
   border-radius: 999px;
   border: 1px solid transparent;
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -369,10 +378,11 @@ button {
 
 .scroll-indicator {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   place-items: center;
   color: rgba(15,23,42,0.72);
-  font-size: 0.88rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
 }
 
 .scroll-indicator .mouse {
@@ -397,7 +407,7 @@ button {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 90px 24px;
+  padding: 110px 24px;
 }
 
 .section-header {
@@ -411,7 +421,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.24em;
   color: var(--accent-dark);
-  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
   font-weight: 700;
 }
 
@@ -419,7 +429,7 @@ button {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: clamp(2.6rem, 3vw, 3.6rem);
+  font-size: clamp(3rem, 4vw, 4.4rem);
   line-height: 1.02;
 }
 
@@ -438,10 +448,10 @@ button {
 }
 
 .text-block p {
-  line-height: 1.95;
+  line-height: 2.08;
   color: rgba(15, 23, 42, 0.84);
-  margin: 0 0 20px;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  margin: 0 0 22px;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
 }
 
 .stat-blocks {
@@ -457,14 +467,16 @@ button {
 
 .stat-card span {
   display: block;
-  font-size: 2.4rem;
+  font-size: clamp(2.6rem, 3.4vw, 3.2rem);
   font-weight: 900;
   color: var(--accent-dark);
 }
 
 .stat-card p {
-  margin: 12px 0 0;
-  color: rgba(15,23,42,0.76);
+  margin: 14px 0 0;
+  color: rgba(15,23,42,0.78);
+  font-size: 1.08rem;
+  font-weight: 600;
 }
 
 .signature-content,
@@ -482,10 +494,10 @@ button {
 .value-card,
 .contact-card {
   border-radius: 28px;
-  padding: 28px;
-  min-height: 220px;
+  padding: 32px;
+  min-height: 240px;
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .signature-item h3,
@@ -495,8 +507,8 @@ button {
 .vision-grid h3 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 1.6vw, 1.75rem);
-  font-weight: 800;
+  font-size: clamp(1.7rem, 2vw, 2.1rem);
+  font-weight: 900;
 }
 
 .signature-item p,
@@ -505,10 +517,10 @@ button {
 .value-card p,
 .vision-grid p { 
   margin: 0;
-  line-height: 1.95;
-  color: rgba(15,23,42,0.8);
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  font-weight: 500;
+  line-height: 2.08;
+  color: rgba(15,23,42,0.82);
+  font-size: clamp(1.12rem, 1.35vw, 1.25rem);
+  font-weight: 600;
 }
 
 .project-tag {
@@ -516,14 +528,14 @@ button {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: 999px;
-  background: rgba(110, 231, 183, 0.16);
+  background: rgba(110, 231, 183, 0.18);
   color: var(--accent-dark);
-  font-size: 0.92rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-weight: 800;
 }
 
 .vision-grid {
@@ -540,8 +552,10 @@ button {
 }
 
 .contact-card p {
-  font-size: 1.02rem;
-  color: rgba(15, 23, 42, 0.82);
+  font-size: clamp(1.15rem, 1.4vw, 1.3rem);
+  color: rgba(15, 23, 42, 0.84);
+  line-height: 2.1;
+  font-weight: 600;
 }
 
 .contact-actions {
@@ -564,9 +578,14 @@ button {
 
 .footer p {
   margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: rgba(15,23,42,0.88);
+}
+
+.footer-links a {
   font-size: 1rem;
-  font-weight: 500;
-  color: rgba(15,23,42,0.86);
+  font-weight: 700;
 }
 
 .footer-links {
@@ -578,23 +597,25 @@ button {
 
 .footer-links a {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .social-icons {
   display: inline-flex;
-  gap: 14px;
+  gap: 16px;
 }
 
 .social-icons a {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
-  border-radius: 14px;
+  border-radius: 16px;
   background: rgba(255,255,255,0.88);
   color: var(--accent-dark);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .fade-up {
