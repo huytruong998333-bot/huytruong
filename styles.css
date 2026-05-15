@@ -1,5 +1,7 @@
 :root {
   color-scheme: light;
+  --font-heading: 'Oswald', 'Montserrat', sans-serif;
+  --font-body: 'Poppins', 'Inter', sans-serif;
   --bg: #ecfdf5;
   --bg-deep: #d1fae5;
   --bg-soft: rgba(255, 255, 255, 0.84);
@@ -20,7 +22,9 @@ body {
               radial-gradient(circle at right, rgba(16, 46, 56, 0.14), transparent 18%),
               linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 45%, #0f172a 100%);
   color: var(--text);
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -102,10 +106,10 @@ button {
 .brand {
   display: grid;
   gap: 4px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
-  letter-spacing: 0.2em;
-  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  font-size: 1rem;
   color: var(--accent-dark);
 }
 
@@ -126,8 +130,9 @@ button {
 .navlinks a {
   position: relative;
   color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.03rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   transition: color 0.25s ease;
 }
 
@@ -272,7 +277,7 @@ button {
   border-radius: 50%;
   background: rgba(15, 23, 42, 0.92);
   color: #f8fafc;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: 0.28em;
@@ -290,33 +295,37 @@ button {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  font-size: 0.82rem;
-  color: rgba(15, 23, 42, 0.68);
+  font-size: clamp(0.92rem, 1.4vw, 1rem);
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.72);
 }
 
 .hero h1 {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(3rem, 5vw, 6rem);
-  line-height: 0.92;
-  letter-spacing: 0.12em;
+  font-family: var(--font-heading);
+  font-size: clamp(4.5rem, 7vw, 7.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-weight: 900;
 }
 
 .subtitle {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: rgba(15, 23, 42, 0.8);
+  font-size: clamp(1.12rem, 1.4vw, 1.35rem);
+  line-height: 1.95;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.82);
 }
 
 .headline {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.55rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.2vw, 2.4rem);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--accent-dark);
+  font-weight: 800;
 }
 
 .hero-actions {
@@ -330,12 +339,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 160px;
-  padding: 16px 28px;
+  min-width: 170px;
+  padding: 18px 32px;
   border-radius: 999px;
   border: 1px solid transparent;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -346,12 +357,14 @@ button {
 .button.primary {
   background: linear-gradient(135deg, rgba(110,231,183,0.95), rgba(15,23,42,0.95));
   color: #fff;
+  box-shadow: 0 18px 35px rgba(15,23,42,0.14);
 }
 
 .button.secondary {
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.92);
   color: var(--accent-dark);
-  border-color: rgba(15,23,42,0.06);
+  border-color: rgba(15,23,42,0.08);
+  font-weight: 700;
 }
 
 .scroll-indicator {
@@ -396,15 +409,18 @@ button {
 
 .section-header span {
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   color: var(--accent-dark);
-  font-size: 0.8rem;
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  font-weight: 700;
 }
 
 .section-header h2 {
   margin: 0;
-  font-size: clamp(2rem, 2.5vw, 3rem);
-  line-height: 1.05;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 3vw, 3.6rem);
+  line-height: 1.02;
 }
 
 .glass-panel {
@@ -422,9 +438,10 @@ button {
 }
 
 .text-block p {
-  line-height: 1.9;
-  color: rgba(15, 23, 42, 0.82);
-  margin: 0 0 18px;
+  line-height: 1.95;
+  color: rgba(15, 23, 42, 0.84);
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
 
 .stat-blocks {
@@ -440,7 +457,7 @@ button {
 
 .stat-card span {
   display: block;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 900;
   color: var(--accent-dark);
 }
@@ -477,8 +494,9 @@ button {
 .value-card h3,
 .vision-grid h3 {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.35rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 1.6vw, 1.75rem);
+  font-weight: 800;
 }
 
 .signature-item p,
@@ -487,8 +505,10 @@ button {
 .value-card p,
 .vision-grid p { 
   margin: 0;
-  line-height: 1.8;
-  color: rgba(15,23,42,0.78);
+  line-height: 1.95;
+  color: rgba(15,23,42,0.8);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-weight: 500;
 }
 
 .project-tag {
@@ -496,13 +516,14 @@ button {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(110, 231, 183, 0.15);
+  background: rgba(110, 231, 183, 0.16);
   color: var(--accent-dark);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  font-weight: 700;
 }
 
 .vision-grid {
@@ -543,8 +564,9 @@ button {
 
 .footer p {
   margin: 0;
-  font-size: 0.96rem;
-  color: rgba(15,23,42,0.82);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(15,23,42,0.86);
 }
 
 .footer-links {
