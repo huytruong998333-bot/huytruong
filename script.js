@@ -71,3 +71,50 @@ if (typedText) {
 const styleSheet = document.createElement('style');
 styleSheet.textContent = `@keyframes typing { to { opacity: 1; transform: translateY(0); } }`;
 document.head.appendChild(styleSheet);
+
+// Avatar upload + size control
+const avatarImg = document.getElementById('avatarImg');
+const avatarUpload = document.getElementById('avatarUpload');
+const avatarSize = document.getElementById('avatarSize');
+const root = document.documentElement;
+
+function setAvatarSize(px) {
+  root.style.setProperty('--avatar-core-size', px + 'px');
+}
+
+// Initialize size from slider or default
+if (avatarSize) {
+  setAvatarSize(avatarSize.value);
+  avatarSize.addEventListener('input', (e) => {
+    setAvatarSize(e.target.value);
+    localStorage.setItem('avatarSize', e.target.value);
+  });
+  const saved = localStorage.getItem('avatarSize');
+  if (saved) setAvatarSize(saved);
+}
+
+if (avatarUpload) {
+  avatarUpload.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      avatarImg.src = ev.target.result;
+      avatarImg.classList.add('loaded');
+      localStorage.setItem('avatarData', ev.target.result);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// Load persisted avatar if available
+const savedAvatar = localStorage.getItem('avatarData');
+if (savedAvatar && avatarImg) {
+  avatarImg.src = savedAvatar;
+  avatarImg.classList.add('loaded');
+}
+
+if (avatarImg) {
+  avatarImg.addEventListener('load', () => avatarImg.classList.add('loaded'));
+  avatarImg.addEventListener('error', () => avatarImg.classList.remove('loaded'));
+}

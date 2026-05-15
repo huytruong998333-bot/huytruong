@@ -74,10 +74,23 @@
           <div class="hero-visual">
             <div class="avatar-frame">
               <div class="avatar-ring"></div>
-              <div class="avatar-core">TQH</div>
+              <div class="avatar-core">
+                <img id="avatarImg" src="assets/avatar.jpg" alt="TQH" />
+                <span class="avatar-initials">TQH</span>
+              </div>
             </div>
             <div class="hero-note glass-panel">
               <p><strong>“ĐÃ NGHĨ LÀ LÀM”</strong> - Mỗi thiết kế tôi tạo ra đều hướng tới hiệu quả thực tế và dấu ấn thương hiệu.</p>
+            </div>
+            <div class="avatar-controls" aria-hidden="false">
+              <label class="avatar-upload">
+                <input type="file" id="avatarUpload" accept="image/*" />
+                Chọn ảnh avatar
+              </label>
+              <label class="avatar-range">
+                Kích thước
+                <input type="range" id="avatarSize" min="110" max="200" value="144" />
+              </label>
             </div>
           </div>
         </div>

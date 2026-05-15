@@ -10,6 +10,8 @@
   --muted: #4f5f61;
   --accent: #7fbea6;
   --accent-dark: #163b30;
+  --avatar-frame-size: 210px;
+  --avatar-core-size: 144px;
   --border: rgba(15, 23, 42, 0.12);
   --shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
 }
@@ -427,8 +429,8 @@ button {
 
 .avatar-frame {
   position: relative;
-  width: 210px;
-  height: 210px;
+  width: var(--avatar-frame-size);
+  height: var(--avatar-frame-size);
   margin: 0 auto;
   border-radius: 50%;
   background: radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(255,255,255,0.2));
@@ -439,27 +441,49 @@ button {
 
 .avatar-ring {
   position: absolute;
-  inset: 16px;
+  inset: 12px;
   border-radius: 50%;
-  background: conic-gradient(from 180deg, rgba(110,231,183,0.85), rgba(15,23,42,0.08), rgba(110,231,183,0.35));
+  background: conic-gradient(from 180deg, rgba(127,190,166,0.9), rgba(15,23,42,0.08), rgba(127,190,166,0.4));
   filter: blur(1px);
 }
 
 .avatar-core {
   position: relative;
   z-index: 1;
-  width: 144px;
-  height: 144px;
+  width: var(--avatar-core-size);
+  height: var(--avatar-core-size);
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.94);
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.06);
+  display: grid;
+  place-items: center;
+}
+
+.avatar-core img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.avatar-initials {
+  position: absolute;
+  z-index: 2;
   color: #f8fafc;
+  background: rgba(15,23,42,0.94);
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
   font-family: var(--font-heading);
-  font-size: 2.2rem;
-  letter-spacing: 0.28em;
-  font-weight: 900;
+  font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
+
+.avatar-core img.loaded + .avatar-initials { display: none; }
 
 .hero-note {
   padding: 24px 28px;
@@ -471,6 +495,42 @@ button {
   letter-spacing: 0.2em;
   margin-bottom: 10px;
   color: var(--accent-dark);
+}
+
+.avatar-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.avatar-upload input[type="file"] {
+  display: none;
+}
+
+.avatar-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(15,23,42,0.06);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.avatar-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.avatar-range input[type="range"] {
+  width: 140px;
 }
 }
 
