@@ -1,4 +1,3 @@
-const body = document.body;
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 const pageLoader = document.getElementById('pageLoader');
@@ -26,24 +25,20 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
   setTimeout(() => {
     pageLoader.classList.add('hidden');
-  }, 600);
+  }, 700);
 });
 
 const sections = document.querySelectorAll('main section[id]');
 const navItems = document.querySelectorAll('.navlinks a');
-
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const id = entry.target.id;
       navItems.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
       });
     }
   });
-}, {
-  threshold: 0.36,
-});
+}, { threshold: 0.38 });
 
 sections.forEach(section => sectionObserver.observe(section));
 
@@ -55,21 +50,20 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.16 });
+}, { threshold: 0.2 });
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-const typedText = document.querySelector('.headline');
+const typedText = document.querySelector('.hero-title');
 if (typedText) {
-  const text = typedText.textContent.trim();
+  const originalText = typedText.textContent.trim();
   typedText.textContent = '';
-  const chars = text.split('');
-  chars.forEach((char, index) => {
+  originalText.split('').forEach((char, index) => {
     const span = document.createElement('span');
     span.textContent = char;
     span.style.opacity = '0';
     span.style.display = 'inline-block';
-    span.style.animation = `typing 0.08s ease forwards ${index * 0.04 + 0.6}s`;
+    span.style.animation = `typing 0.06s ease forwards ${index * 0.03 + 0.8}s`;
     typedText.appendChild(span);
   });
 }
@@ -77,28 +71,3 @@ if (typedText) {
 const styleSheet = document.createElement('style');
 styleSheet.textContent = `@keyframes typing { to { opacity: 1; transform: translateY(0); } }`;
 document.head.appendChild(styleSheet);
-
-const resizeObserver = new ResizeObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.contentRect.width <= 860) {
-      navLinks.style.position = 'absolute';
-      navLinks.style.top = '82px';
-      navLinks.style.right = '20px';
-      navLinks.style.background = 'rgba(255,255,255,0.95)';
-      navLinks.style.padding = '18px 22px';
-      navLinks.style.borderRadius = '24px';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.boxShadow = '0 32px 80px rgba(15,23,42,0.16)';
-    } else {
-      navLinks.style.position = '';
-      navLinks.style.top = '';
-      navLinks.style.right = '';
-      navLinks.style.background = '';
-      navLinks.style.padding = '';
-      navLinks.style.borderRadius = '';
-      navLinks.style.flexDirection = '';
-      navLinks.style.boxShadow = '';
-    }
-  });
-});
-resizeObserver.observe(document.body);
