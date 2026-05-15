@@ -1,33 +1,8 @@
 const body = document.body;
-const themeToggle = document.getElementById('themeToggle');
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 const pageLoader = document.getElementById('pageLoader');
 const progressLine = document.getElementById('progressLine');
-
-function setTheme(theme) {
-  if (theme === 'dark') {
-    body.classList.add('dark');
-    themeToggle.classList.add('dark');
-    themeToggle.classList.remove('light');
-  } else {
-    body.classList.remove('dark');
-    themeToggle.classList.add('light');
-    themeToggle.classList.remove('dark');
-  }
-  localStorage.setItem('portfolioTheme', theme);
-}
-
-function initializeTheme() {
-  const savedTheme = localStorage.getItem('portfolioTheme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
-}
-
-themeToggle.addEventListener('click', () => {
-  const nextTheme = body.classList.contains('dark') ? 'light' : 'dark';
-  setTheme(nextTheme);
-});
 
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
@@ -49,7 +24,6 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('load', () => {
-  initializeTheme();
   setTimeout(() => {
     pageLoader.classList.add('hidden');
   }, 600);
