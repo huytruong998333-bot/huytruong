@@ -416,9 +416,9 @@ button {
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(15, 23, 42, 0.12);
   color: var(--accent-dark);
+}
 .button.secondary:hover {
   background: rgba(110, 231, 183, 0.14);
-}
 }
 
 .hero-visual {
@@ -489,6 +489,7 @@ button {
   padding: 24px 28px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.9);
+}
 .hero-note strong {
   display: block;
   font-size: 0.95rem;
@@ -531,7 +532,6 @@ button {
 
 .avatar-range input[type="range"] {
   width: 140px;
-}
 }
 
 .hero-note p {
